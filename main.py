@@ -58,6 +58,24 @@ def decryptForEvery(text):
     return variantes
 
 
+def countDifference(text):
+    frequencies = count_frequencies(text)
+    frequencies = {key: value for key, value in sorted(frequencies.items())}
+    frequencies = count_percentage_frequency(frequencies)
+    sum = 0
+    for key in frequencies.keys():
+        sum += abs(frequencies[key] - letters_frequency[key])
+    return sum
+
+
+def allDifferences(variantes):
+    sums = []
+    for i in range(0, 26):
+        sums.append(countDifference(variantes[i]))
+    return sums
+
+
+
 
 
 
