@@ -75,6 +75,15 @@ def allDifferences(variantes):
     return sums
 
 
+def findBestKeys(sums):
+    keys = []
+    for i in range(1, 4):
+        minIndex = sums.index(min(sums))
+        keys.append(minIndex + 1)
+        sums.pop(minIndex)
+    return keys
+
+
 
 
 
