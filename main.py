@@ -84,6 +84,17 @@ def findBestKeys(sums):
     return keys
 
 
+file = open("ForPython6.txt", "r")
+text = file.read()
+possibleDecryptions = decryptForEvery(text)
+differences = allDifferences(possibleDecryptions)
+keys = findBestKeys(differences)
+print(keys)
+decrypted = decrypt(text, keys[0])
+freq = count_frequencies(decrypted)
+freq = {key: value for key, value in sorted(freq.items())}
+frequencies = count_percentage_frequency(freq)
+draw_chart(freq)
 
 
 
