@@ -37,6 +37,29 @@ def count_percentage_frequency(frequencies):
     return result
 
 
+def decrypt(text, key):
+    result = ''
+    for letter in text:
+        if letter.isalpha():
+            index = alphabet.index(letter.lower())
+            if index - key >= 0:
+                result += alphabet[index - key]
+            else:
+                result += alphabet[(index - key % 26)]
+        else:
+            result += letter
+    return result
+
+
+def decryptForEvery(text):
+    variantes = []
+    for key in range(1, 27):
+        variantes.append(decrypt(text, key))
+    return variantes
+
+
+
+
 
 
 
